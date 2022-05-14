@@ -1,0 +1,54 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& a) {
+        int cf=0,rf=0;
+        int r=a.size();
+        int c=a[0].size();
+        for(int i=0;i<r;i++)
+        {
+            if(a[i][0]==0)
+                cf=1;
+            
+        }
+        for(int i=0;i<c;i++)
+        {
+            
+        if(a[0][i]==0)
+                rf=1;
+        }
+        for(int i=0;i<r;i++)
+        {
+            for(int j=0;j<c;j++)
+            {
+                if(a[i][j]==0)
+                {
+                    a[i][0]=0;
+                    a[0][j]=0;
+                }
+            }
+        }
+         for(int i=1;i<r;i++)
+        {
+            for(int j=1;j<c;j++)
+            {
+                if(a[i][0]==0||a[0][j]==0)
+                {
+                    a[i][j]=0;
+                   
+                }
+            }
+        }
+        if(rf)
+        {
+            for(int i=0;i<c;i++)
+                a[0][i]=0;
+        }
+        if(cf)
+        {
+            for(int i=0;i<r;i++)
+                a[i][0]=0;
+        }
+        
+      
+    }
+};
